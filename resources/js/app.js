@@ -9,6 +9,7 @@ import { createApp } from 'vue';
 import RootComponent from './components/root.vue';
 import router from './route';
 
+import 'mdb-vue-ui-kit/css/mdb.min.css';
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
  * registering components with the application instance so they are ready

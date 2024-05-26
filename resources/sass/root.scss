@@ -5,8 +5,25 @@ html, body {
 
 .wrapper {
     width: 80vw;
-    min-height: 800px;
+    min-height: 1100px;
 
     margin: auto;
-    background-color: red;
+    padding-bottom: 60px;
+    background-color: $color_6;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    color: white;
+}
+
+hr {
+    width: 100%;
+    height: 10px;
+    background-color: $color_5;
+    border: none;
+    border-radius: 5px;
+    opacity: 1;
 }

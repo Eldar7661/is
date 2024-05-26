@@ -1,0 +1,35 @@
+.mn-articles {
+    width: 85%;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+
+    .article-mini {
+        width: 260px;
+
+        margin: 15px;
+    }
+
+    .card {
+        background-color: $color_4;
+        color: $color_0;
+
+        .card-header{
+            border-bottom: 2px solid $color_0;
+        }
+    }
+
+    .link {
+        color: $color_0;
+        padding: 6px;
+        border: 2px solid $color_0;
+        border-radius: 4px;
+
+        &:hover {
+            color: $color_1;
+            border: 2px solid $color_1;
+        }
+    }
+}

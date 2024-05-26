@@ -1,11 +1,19 @@
 import { createMemoryHistory, createWebHistory, createRouter } from "vue-router";
 
-// import ComponentHome from './components/page/home.vue';
+import ComponentArticles from './components/pages/articles.vue';
+import ComponentHome     from './components/pages/home.vue';
+
+import ComponentStat     from './components/pages/stat.vue';
 
 const router = createRouter({
     history: createWebHistory(),
     routes: [
-        // { path: '/home',    component: ComponentHome, alias: '/'},
+        { path: '/',            component: ComponentHome, alias: '/'},
+        { path: '/articles',    component: ComponentArticles},
+        { path: '/edit',    component: ComponentHome},
+        { path: '/login',    component: ComponentHome},
+
+        { path: '/stat',    component: ComponentStat},
     ],
 });
 
