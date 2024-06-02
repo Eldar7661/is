@@ -1,27 +1,19 @@
 <template>
     <main class="mn-articles">
-        <section class="article-mini" v-for="i in 10">
+        <section class="article-mini" v-for="article in articles">
             <MDBCard text="center">
-                <MDBCardHeader>Title</MDBCardHeader>
+                <MDBCardHeader>{{ article.title }}</MDBCardHeader>
 
                 <MDBCardBody>
-                <!-- <MDBCardTitle>Special title treatment</MDBCardTitle> -->
-                <MDBCardText>
-                    With supporting text below as a natural lead-in to additional content.
-                    With supporting text below as a natural lead-in to additional content.
-                </MDBCardText>
-                <!-- <MDBBtn tag="a" href="#!" color="primary">More details</MDBBtn> -->
-                <!-- <MDBBtn outline="dark" rounded>More details</MDBBtn> -->
-                <router-link class="link" to="/">More details</router-link>
-            </MDBCardBody>
+                    <MDBCardText>{{ article.text }}</MDBCardText><MDBBtn color="secondary" rounded @click="moreDetalis(article.id)">More details</MDBBtn>
+                </MDBCardBody>
 
-            <!-- <MDBCardFooter class="text-muted">2 days ago</MDBCardFooter> -->
             </MDBCard>
         </section>
     </main>
 </template>
 
-<script setup lang="ts">
+<script>
     import {
         MDBCard,
         MDBCardHeader,
@@ -30,4 +22,31 @@
         MDBCardText,
         MDBBtn
     } from "mdb-vue-ui-kit";
+
+    export default {
+        components: {
+            MDBCard,
+            MDBCardHeader,
+            MDBCardBody,
+            MDBCardTitle,
+            MDBCardText,
+            MDBBtn
+        },
+        data() {
+            return {
+                articles: [],
+            }
+        },
+        mounted() {
+            axios.post('api/article/all')
+            .then((data) => {
+                this.articles = data.data;
+            });
+        },
+        methods: {
+            moreDetalis(id) {
+                this.$router.push({ path: '/stat', query: { id: id } });
+            }
+        }
+    }
 </script>

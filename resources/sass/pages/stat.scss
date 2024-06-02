@@ -1,19 +1,13 @@
 .mn-stat {
-    width: 80%;
-
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
 
+    color: $color_1;
+
     .content {
         width: 100%;
-        // background-color: ;
-
-        pre {
-            width: 100%;
-            overflow: hidden;
-        }
     }
 
     .link-conteiner {

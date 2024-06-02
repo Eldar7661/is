@@ -1,5 +1,5 @@
 import 'bootstrap';
-
+import router from './route';
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the
@@ -11,6 +11,40 @@ window.axios = axios;
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
+window.axiosAuth = axios.create();
+axiosAuth.interceptors.request.use((config) => {
+    if(localStorage.getItem('token')) {
+        config.headers.authorization = `Bearer ${localStorage.getItem('token')}`;
+    }
+    return config;
+}, error => {
+    return error;
+});
+
+axiosAuth.interceptors.response.use(config => {
+    if(localStorage.getItem('token')) {
+        config.headers.authorization = `Bearer ${localStorage.getItem('token')}`;
+    }
+    return config;
+}, error => {
+    if (error.response.data.message == 'Token has expired') {
+        return axios.post('api/auth/refresh', {}, {
+            headers: {
+                'authorization': `Bearer ${localStorage.getItem('token')}`,
+            }
+        })
+        .then( data => {
+            // localStorage.setItem('token', data.data.access_token);
+            // error.config.headers.authorization = `Bearer ${data.data.access_token}`;
+            // return axiosAuth.request(error.config);
+
+        });
+    }
+    return error;
+    // else {
+    //     router.push({ path: '/login' });
+    // }
+});
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting

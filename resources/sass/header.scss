@@ -2,15 +2,15 @@ header {
     width: 100%;
 
     nav {
-        background-color: $color_4;
+        background-color: $color_1;
     }
     .link {
-        color: $color_0;
+        color: $color_1;
 
         margin: 8px;
 
         &:hover {
-            color: $color_1;
+            color: $color_0;
             // opacity: 0.4;
         }
     }

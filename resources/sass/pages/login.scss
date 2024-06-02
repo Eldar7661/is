@@ -1,0 +1,16 @@
+.mn-login {
+    // height: 900px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .block {
+        width: 360px;
+
+        margin-top: 150px;
+        padding: 20px;
+
+        background-color: $color_1;
+        border-radius: 5px;
+    }
+}
