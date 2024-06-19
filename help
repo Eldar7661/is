@@ -1,0 +1,41 @@
+Download: Composer, npm
+apache config
+
+create-project laravel/laravel example
+composer require laravel/ui
+php artisan ui vue --auth
+npm i
+env
+php artisan db:seed --class=Seed
+
+
+clone
+npm i
+apache config
+env
+php artisan db:seed --class=Seed
+
+
+{
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build"
+    },
+    "devDependencies": {
+        "@popperjs/core": "^2.11.6",
+        "@vitejs/plugin-vue": "^4.5.0",
+        "axios": "^1.6.4",
+        "bootstrap": "^5.2.3",
+        "laravel-vite-plugin": "^1.0",
+        "sass": "^1.56.1",
+        "vite": "^5.0",
+        "vue": "^3.2.37"
+    },
+    "dependencies": {
+        "mdb-vue-ui-kit": "^4.0.0",
+        "vue-axios": "^3.5.2",
+        "vue-router": "^4.2.5"
+    }
+}
